@@ -1,0 +1,6 @@
+${PODS_ROOT}/Target Support Files/Pods-LabCSDL-LabCSDLUITests/Pods-LabCSDL-LabCSDLUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
+${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework
+${BUILT_PRODUCTS_DIR}/PromisedFuture/PromisedFuture.framework
+${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework

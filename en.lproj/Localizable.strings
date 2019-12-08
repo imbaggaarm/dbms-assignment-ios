@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  LabCSDL
+
+  Created by Imbaggaarm on 12/8/19.
+  Copyright © 2019 Tai Duong. All rights reserved.
+*/
+
+"kSEARCH" = "Search";
+"kCHAT" = "Chat";
+"kEXPLORER" = "Explorer";
+"kFRIENDS" = "Friends";
+"kTOTAL_FRIENDS" = " friends";
+"kPROFILE_PAGE" = "Profile";
+"kREGISTER" = "Register";
+"kLOGIN" = "Login";

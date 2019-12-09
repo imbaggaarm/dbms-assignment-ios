@@ -17,7 +17,7 @@ struct Course: Codable {
     let specializationID: UInt
     let minGrade: Float
     let coursePrice: Float
-    let active: Bool
+    let active: Int
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -46,3 +46,20 @@ struct OverrallCourse: Codable {
     }
 }
 
+struct CourseVM {
+    var course: Course
+    var name: String
+    var institutionName: String
+    var institutionImageURL: URL?
+    var description: String
+    var price: String
+    
+    init(course: Course, institutionName: String, institutionImageURL: URL?) {
+        self.course = course
+        self.name = course.name
+        self.institutionName = institutionName
+        self.institutionImageURL = institutionImageURL
+        self.description = course.description
+        self.price = "\(course.coursePrice)$"
+    }
+}

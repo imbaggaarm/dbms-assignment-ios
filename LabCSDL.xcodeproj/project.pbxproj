@@ -70,6 +70,8 @@
 		9CC69F60239D7A10006AD530 /* UpdateProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC69F5F239D7A10006AD530 /* UpdateProfileVC.swift */; };
 		9CC69F62239D89AF006AD530 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC69F61239D89AF006AD530 /* Course.swift */; };
 		9CC69F64239D97DF006AD530 /* CourseEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC69F63239D97DF006AD530 /* CourseEndpoint.swift */; };
+		9CC69F66239DB732006AD530 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC69F65239DB732006AD530 /* Comment.swift */; };
+		9CC69F68239DC470006AD530 /* CommentEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC69F67239DC470006AD530 /* CommentEndpoint.swift */; };
 		D90A5C957B0EF09B85FF826D /* Pods_LabCSDL_LabCSDLUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27DCF993FF96C9DCC7A1363 /* Pods_LabCSDL_LabCSDLUITests.framework */; };
 		EEE68AE3045F3AB42FEFFD50 /* Pods_LabCSDLTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2A08B0E2D55163D511C287 /* Pods_LabCSDLTests.framework */; };
 /* End PBXBuildFile section */
@@ -165,6 +167,8 @@
 		9CC69F5F239D7A10006AD530 /* UpdateProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileVC.swift; sourceTree = "<group>"; };
 		9CC69F61239D89AF006AD530 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		9CC69F63239D97DF006AD530 /* CourseEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseEndpoint.swift; sourceTree = "<group>"; };
+		9CC69F65239DB732006AD530 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		9CC69F67239DC470006AD530 /* CommentEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentEndpoint.swift; sourceTree = "<group>"; };
 		9E2A08B0E2D55163D511C287 /* Pods_LabCSDLTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LabCSDLTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A393E5528F3044AD3E38ECA3 /* Pods-LabCSDL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LabCSDL.release.xcconfig"; path = "Target Support Files/Pods-LabCSDL/Pods-LabCSDL.release.xcconfig"; sourceTree = "<group>"; };
 		B7142E4C14D9F3C3F995CFBD /* Pods-LabCSDL-LabCSDLUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LabCSDL-LabCSDLUITests.release.xcconfig"; path = "Target Support Files/Pods-LabCSDL-LabCSDLUITests/Pods-LabCSDL-LabCSDLUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -446,6 +450,7 @@
 				9CC69F52239D6AD7006AD530 /* APIRouter.swift */,
 				9CC69F53239D6AD7006AD530 /* AuthRouter.swift */,
 				9CC69F63239D97DF006AD530 /* CourseEndpoint.swift */,
+				9CC69F67239DC470006AD530 /* CommentEndpoint.swift */,
 				9CC69F54239D6AD7006AD530 /* UserEndpoint.swift */,
 			);
 			path = REST;
@@ -457,6 +462,7 @@
 				9CC69F5B239D6BB8006AD530 /* User.swift */,
 				9CC69F5D239D6BEC006AD530 /* Response.swift */,
 				9CC69F61239D89AF006AD530 /* Course.swift */,
+				9CC69F65239DB732006AD530 /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -735,6 +741,7 @@
 				9CC69F62239D89AF006AD530 /* Course.swift in Sources */,
 				9C7688DF23969C910092DDB9 /* IMBBaseSlideMenuController.swift in Sources */,
 				9C7688DB23969C910092DDB9 /* IMBToolbarViewController.swift in Sources */,
+				9CC69F66239DB732006AD530 /* Comment.swift in Sources */,
 				9CC69F56239D6AD7006AD530 /* APIClient.swift in Sources */,
 				9C7688FD2396A6060092DDB9 /* CoursesVC.swift in Sources */,
 				9C7688E323969C910092DDB9 /* IMBExtension.swift in Sources */,
@@ -779,6 +786,7 @@
 				9C7688FB2396A4230092DDB9 /* AppIcon.swift in Sources */,
 				9C76891A239CB3220092DDB9 /* LaunchVCLayout.swift in Sources */,
 				9C76890E239CB27F0092DDB9 /* WelcomeVCLayout.swift in Sources */,
+				9CC69F68239DC470006AD530 /* CommentEndpoint.swift in Sources */,
 				9C7688E123969C910092DDB9 /* IMBBaseSlideMenuCollectionViewController.swift in Sources */,
 				9C7688DD23969C910092DDB9 /* IMBViewControllerTemplate.swift in Sources */,
 			);

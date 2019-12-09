@@ -39,7 +39,7 @@ enum UserEndPoint: APIConfiguration {
         case .updateProfile:
             return "/update_profile"
         case .courses:
-            return "/\(UserProfile.this.id)"
+            return "/\(UserProfile.this.id)/courses"
         }
     }
     

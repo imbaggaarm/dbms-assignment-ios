@@ -34,7 +34,7 @@ class UpdateProfileVC: BaseViewControllerLayout {
         temp.font = UIFont.boldSystemFont(ofSize: 23)
         temp.textColor = .white
         temp.placeholder = "Tên và tên lót"
-        temp.textAlignment = .center
+        temp.textAlignment = .left
         return temp
     }()
     
@@ -43,7 +43,7 @@ class UpdateProfileVC: BaseViewControllerLayout {
         temp.font = UIFont.boldSystemFont(ofSize: 23)
         temp.textColor = .white
         temp.placeholder = "Họ"
-        temp.textAlignment = .center
+        temp.textAlignment = .right
         return temp
     }()
         

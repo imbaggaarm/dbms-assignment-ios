@@ -107,5 +107,23 @@ struct CourseDetailReponse: Response, Codable {
     
     var message: String
     
-    let data: [Course]?
+    let data: Course?
+}
+
+struct CommentsResponse: Response, Codable {
+    
+    var status: Bool
+    
+    var message: String
+    
+    let data: [Comment]?
+}
+
+struct CommentResponse: Response, Codable {
+    
+    var status: Bool
+    
+    var message: String
+    
+    let data: MiniComment?
 }

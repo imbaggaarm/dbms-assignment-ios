@@ -54,13 +54,23 @@ final class APIClient {
         return performRequest(route: route)
     }
     
-    static func courseDetail(id: UInt) -> Future<CoursesResponse> {
+    static func courseDetail(id: UInt) -> Future<CourseDetailReponse> {
         let route = CourseEndpoint.courseDetail(id: id)
         return performRequest(route: route)
     }
     
     static func updateUserProfile(firstName: String, lastName: String) -> Future<UserProfileResponse> {
         let route = UserEndPoint.updateProfile(firstName: firstName, lastName: lastName)
+        return performRequest(route: route)
+    }
+    
+    static func getComments(courseID: UInt, offSet: UInt) -> Future<CommentsResponse> {
+        let route = CommentEndpoint.getComments(courseID: courseID, offSet: offSet)
+        return performRequest(route: route)
+    }
+    
+    static func createComment(cmt: [String: Any]) -> Future<CommentResponse> {
+        let route = CommentEndpoint.createComment(comment: cmt)
         return performRequest(route: route)
     }
 

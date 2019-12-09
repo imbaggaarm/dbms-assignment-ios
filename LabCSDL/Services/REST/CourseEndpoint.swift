@@ -12,7 +12,6 @@ import Alamofire
 enum CourseEndpoint: APIConfiguration {
     case getCourses(offSet: UInt)
     case courseDetail(id: UInt)
-    
     // MARK: HTTPMethod
     var method: HTTPMethod {
         switch self {

@@ -39,7 +39,6 @@ extension APIConfiguration {
         let urlWithPercent = urlStr.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         var urlRequest = URLRequest(url: URL(string: urlWithPercent)!)
         
-        print(urlRequest)
         // HTTP Method
         urlRequest.httpMethod = method.rawValue
         

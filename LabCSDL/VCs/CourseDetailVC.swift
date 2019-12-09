@@ -88,10 +88,20 @@ class CourseInfoView: UIView {
     }
 }
 
+
 class CommentTableViewCell: IMBBaseTableViewCell {
+    
+    var vm: CommentVM? {
+        didSet {
+            showData()
+        }
+    }
+    
     let imgV: UIImageView = {
         let temp = UIImageView()
         temp.backgroundColor = AppColor.black
+        temp.layer.borderColor = UIColor.init(white: 0.9, alpha: 1).cgColor
+        temp.layer.borderWidth = 0.5
         return temp
     }()
     
@@ -105,7 +115,7 @@ class CommentTableViewCell: IMBBaseTableViewCell {
     
     let vContent: UIView = {
         let temp = UIView()
-        temp.layer.cornerRadius = 8
+        temp.layer.cornerRadius = 12
         temp.backgroundColor = UIColor.init(hexString: "#ECF0F1")
         return temp
     }()
@@ -128,11 +138,13 @@ class CommentTableViewCell: IMBBaseTableViewCell {
         super.setUpLayout()
         
         contentView.addSubviews(subviews: imgV, vContent, lblTime)
-        contentView.addConstraintsWith(format: "H:|-10-[v0]-10-[v1]", views: imgV, vContent)
+        let maxWidth = widthOfScreen - 10 - 10 - 10
+        contentView.addConstraintsWith(format: "H:|-10-[v0]-10-[v1(<=\(maxWidth))]", views: imgV, vContent)
     
+        
         contentView.addConstraintsWith(format: "V:|-10-[v0]", views: imgV)
         vContent.topAnchor(equalTo: imgV.topAnchor, constant: 0)
-        contentView.addConstraintsWith(format: "V:[v0]-5-[v1]", views: vContent, lblTime)
+        contentView.addConstraintsWith(format: "V:[v0]-5-[v1(15)]-5-|", views: vContent, lblTime)
         
         imgV.makeCircle(corner: 20)
         
@@ -140,15 +152,33 @@ class CommentTableViewCell: IMBBaseTableViewCell {
         
         vContent.addSubviews(subviews: lblName, lblText)
         vContent.addSameConstraintsWith(format: "H:|-8-[v0]-8-|", for: lblName, lblText)
-        vContent.addConstraintsWith(format: "V:|-4-[v0]-4-[v1]-4-|", views: lblName, lblText)
+        vContent.addConstraintsWith(format: "V:|-4-[v0(15)]-4-[v1]-4-|", views: lblName, lblText)
+    }
+    
+    override func showData() {
+        lblText.text = vm?.content
+        lblName.text = vm?.displayName
+        lblTime.text = vm?.time
+        imgV.kf.setImage(with: vm?.imageURL, placeholder: AppIcon.userAvtPlaceholder)
+        
     }
 }
 
+@objc protocol CourseCommentsViewDelegate {
+    func loadMoreData(commentsView: CourseCommentsView)
+    func presentAction(commentsView: CourseCommentsView, cmtIndex: Int)
+}
+
+
 class CourseCommentsView: UIView {
+
+    weak var delegate: CourseCommentsViewDelegate?
+    
     lazy var tableView: UITableView = {
         let temp = UITableView()
         temp.register(CommentTableViewCell.self, forCellReuseIdentifier: "CELL_ID")
         temp.keyboardDismissMode = .interactive
+        temp.separatorStyle = .none
         return temp
     }()
     
@@ -165,24 +195,48 @@ class CourseCommentsView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    var vms = [CommentVM]()
+    var isOutOfData = false
+    func reloadData(commentVMs: [CommentVM], isOutOfData: Bool) {
+        vms = commentVMs
+        self.isOutOfData = isOutOfData
+        tableView.reloadData()
+    }
 }
 
 extension CourseCommentsView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return vms[indexPath.row].heightOfCell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return vms.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CELL_ID") as! CommentTableViewCell
+        cell.vm = vms[indexPath.row]
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == vms.count - 2 && !isOutOfData {
+            delegate?.loadMoreData(commentsView: self)
+        }
+    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cmt = vms[indexPath.row]
+        if UserProfile.this.id == cmt.comment.studentID {
+            delegate?.presentAction(commentsView: self, cmtIndex: indexPath.row)
+            
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 class CourseDetailVCLayout: BaseViewControllerLayout {
@@ -254,6 +308,7 @@ class CourseDetailVCLayout: BaseViewControllerLayout {
 
 }
 
+
 class CourseDetailVC: CourseDetailVCLayout {
     
     let INDEX_HOME = 0
@@ -277,6 +332,76 @@ class CourseDetailVC: CourseDetailVCLayout {
         super.viewDidLoad()
         vComments.tableView.contentInset.bottom = inputMessageBar.heightOfMessageBar
         segControl.addTarget(self, action: #selector(onSegControlSelected), for: .valueChanged)
+
+        vComments.delegate = self
+        
+        inputMessageBar.delegate = self
+    }
+    
+    var overralCourseVM: CourseTBCVM? {
+        didSet {
+            if overralCourseVM != nil {
+                loadData()
+            }
+        }
+    }
+    
+    var courseVM: CourseVM!
+    
+    var comments = [Comment]()
+    var offSet: UInt = 0
+    var isOutOfComments = false
+    
+    func loadData() {
+        APIClient.courseDetail(id: overralCourseVM!.id).execute(onSuccess: { (response) in
+            if response.status {
+                self.courseVM = CourseVM.init(course: response.data!, institutionName: self.overralCourseVM!.institutionName, institutionImageURL: self.overralCourseVM?.imgURL)
+                self.showData()
+            } else {
+                self.letsAlert(withMessage: response.message)
+            }
+        }) { (error) in
+            self.letsAlert(withMessage: error.asAFError?.errorDescription ?? "Unexpected Error")
+        }
+        
+        loadComments()
+    }
+    
+    func loadComments() {
+        APIClient.getComments(courseID: overralCourseVM!.id, offSet: offSet).execute(onSuccess: { (response) in
+            if response.status {
+                if let cmts = response.data {
+                    if self.offSet == 0 {
+                        self.comments = cmts
+                    } else {
+                        self.comments.append(contentsOf: cmts)
+                    }
+                    
+                    self.offSet = cmts.last?.id ?? self.offSet
+                    if cmts.count < 20 {
+                        self.isOutOfComments = true
+                    }
+                } else {
+                    self.isOutOfComments = true
+                }
+                self.vComments.reloadData(commentVMs: self.comments.map { CommentVM.init(cmt: $0) }, isOutOfData: self.isOutOfComments)
+            } else {
+                self.letsAlert(withMessage: response.message)
+            }
+        }) { (error) in
+            self.letsAlert(withMessage: error.asAFError?.errorDescription ?? "Unexpected Error")
+        }
+
+    }
+    
+    override func showData() {
+        super.showData()
+        
+        vHeader.imgV.kf.setImage(with: courseVM.institutionImageURL, placeholder: AppIcon.imagePlaceHolder)
+        vHeader.lblInstitution.text = courseVM.institutionName
+        vHeader.lblTitle.text = courseVM.name
+        
+        vInfo.txtVDescription.text = courseVM.description
     }
     
     @objc func onSegControlSelected() {
@@ -298,5 +423,83 @@ class CourseDetailVC: CourseDetailVCLayout {
         view.bringSubviewToFront(v)
         view.endEditing(true)
         reloadInputViews()
+    }
+}
+
+extension CourseDetailVC: CourseCommentsViewDelegate {
+    func loadMoreData(commentsView: CourseCommentsView) {
+        loadComments()
+    }
+    
+    func presentAction(commentsView: CourseCommentsView, cmtIndex: Int) {
+        //show options
+        let actionVC = UIAlertController.init(title: "Hành động", message: "Chọn hành động dưới đây", preferredStyle: .actionSheet)
+        
+        let delete = UIAlertAction.init(title: "Xoá", style: .destructive) { (action) in
+            //
+        }
+        
+        let update = UIAlertAction.init(title: "Sửa", style: .default) { (action) in
+            //
+        }
+        
+        let cancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
+            //
+        }
+        
+        actionVC.addAction(update)
+        actionVC.addAction(delete)
+        actionVC.addAction(cancel)
+        
+        present(actionVC, animated: true, completion: nil)
+    }
+}
+
+extension CourseDetailVC: InputMessageBarDelegate {
+    func inputMessageBarDidTapButtonEmoji() {
+    }
+    
+    func sendComment(cmt: Comment) {
+        print(cmt.createNewCmtDict())
+        APIClient.createComment(cmt: cmt.createNewCmtDict()).execute(onSuccess: { (response) in
+            if response.status {
+                cmt.id = response.data!.id
+                self.comments.append(cmt)
+                self.offSet = response.data!.id
+                self.vComments.reloadData(commentVMs: self.comments.map { CommentVM.init(cmt: $0) }, isOutOfData: self.isOutOfComments)
+            } else {
+                self.letsAlert(withMessage: response.message)
+            }
+        }) { (error) in
+            self.letsAlert(withMessage: error.asAFError?.errorDescription ?? "Unexpected error")
+        }
+    }
+    
+    func inputMessageBarDidTapButtonSendMessage() {
+        let text = (inputMessageBar.inputContentView.txtVInputMessage.text ?? "")
+        inputMessageBar.sendTextMessage()
+        
+        let timeStr = dateFormatter.string(from: Date())
+        let cmt = Comment.init(courseID: courseVM.course.id, studentID: UserProfile.this.id, stdFN: UserProfile.this.firstName, stdLN: UserProfile.this.lastName, img_url: UserProfile.this.imageUrl, content: text, time: timeStr)
+        
+        sendComment(cmt: cmt)
+    }
+    
+    func inputMessageBarDidTapButtonFastEmoji() {
+    }
+    
+    func inputMessageBarDidTapButtonPickImage() {
+        
+    }
+    
+    func inputMessageBarDidTapButtonCamera() {
+    }
+    
+    func inputMessageBarTxtVDidBecomeFirstResponder() {
+        //
+    }
+    
+    func inputMessageBarTxtVDidResignFirstResponder() {
+        //
     }
 }

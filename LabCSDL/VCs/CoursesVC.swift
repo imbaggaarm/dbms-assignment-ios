@@ -9,6 +9,7 @@
 import UIKit
 
 struct CourseTBCVM {
+    var id: UInt = 0
     let title: String
     let institutionName: String
     let imgURL: URL?
@@ -20,6 +21,7 @@ struct CourseTBCVM {
     }
     
     init(course: OverrallCourse) {
+        self.id = course.id
         self.title = course.name
         self.institutionName = course.institutionName
         self.imgURL = URL.init(string: course.imgURL)
@@ -76,6 +78,7 @@ class CourseTableViewCell: IMBBaseTableViewCell {
         
         lblTitle.text = vm?.title
         lblInstitution.text = vm?.institutionName
+        imgV.kf.setImage(with: vm?.imgURL, placeholder: AppIcon.imagePlaceHolder)
     }
 }
 
@@ -121,7 +124,7 @@ class CoursesVC: CoursesVCLayout {
     func loadData() {
         APIClient.getCourses(offSet: offSet).execute(onSuccess: { (response) in
             if response.status {
-                self.vms = response.data!.map { CourseTBCVM(course: $0)}
+                self.vms.append(contentsOf: response.data!.map { CourseTBCVM(course: $0)})
                 self.tableView.reloadData()
                 self.offSet = response.data!.last!.id
                 if response.data!.count < 20 {
@@ -155,8 +158,9 @@ extension CoursesVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vm = vms[indexPath.row]
+        let vm = vms[indexPath.row]
         let vc = CourseDetailVC()
+        vc.overralCourseVM = vm
         let nvc = UINavigationController.init(rootViewController: vc)
         nvc.modalPresentationStyle = .overCurrentContext
         navigationController?.tabBarController?.present(nvc, animated: true, completion: nil)

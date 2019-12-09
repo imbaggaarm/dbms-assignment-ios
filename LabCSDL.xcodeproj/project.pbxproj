@@ -72,6 +72,18 @@
 		9CC69F64239D97DF006AD530 /* CourseEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC69F63239D97DF006AD530 /* CourseEndpoint.swift */; };
 		9CC69F66239DB732006AD530 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC69F65239DB732006AD530 /* Comment.swift */; };
 		9CC69F68239DC470006AD530 /* CommentEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC69F67239DC470006AD530 /* CommentEndpoint.swift */; };
+		9CF49A61239E308600B5BD02 /* ProfileVCLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF49A60239E308600B5BD02 /* ProfileVCLayout.swift */; };
+		9CF49A63239E30AC00B5BD02 /* UserProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF49A62239E30AC00B5BD02 /* UserProfileVM.swift */; };
+		9CF49A66239E30DC00B5BD02 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF49A65239E30DC00B5BD02 /* ProfileTableViewCell.swift */; };
+		9CF49A68239E312500B5BD02 /* CoursesVCLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF49A67239E312500B5BD02 /* CoursesVCLayout.swift */; };
+		9CF49A6A239E314300B5BD02 /* CourseTBCVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF49A69239E314300B5BD02 /* CourseTBCVM.swift */; };
+		9CF49A6C239E316E00B5BD02 /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF49A6B239E316E00B5BD02 /* CourseTableViewCell.swift */; };
+		9CF49A6E239E31A700B5BD02 /* MyCoursesVCLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF49A6D239E31A700B5BD02 /* MyCoursesVCLayout.swift */; };
+		9CF49A72239E31E100B5BD02 /* CourseDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF49A71239E31E100B5BD02 /* CourseDetailHeaderView.swift */; };
+		9CF49A74239E31F200B5BD02 /* CourseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF49A73239E31F200B5BD02 /* CourseInfoView.swift */; };
+		9CF49A76239E320B00B5BD02 /* CourseCommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF49A75239E320B00B5BD02 /* CourseCommentsView.swift */; };
+		9CF49A78239E323400B5BD02 /* CourseDetailVCLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF49A77239E323400B5BD02 /* CourseDetailVCLayout.swift */; };
+		9CF49A7A239E325200B5BD02 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF49A79239E325200B5BD02 /* CommentTableViewCell.swift */; };
 		D90A5C957B0EF09B85FF826D /* Pods_LabCSDL_LabCSDLUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27DCF993FF96C9DCC7A1363 /* Pods_LabCSDL_LabCSDLUITests.framework */; };
 		EEE68AE3045F3AB42FEFFD50 /* Pods_LabCSDLTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2A08B0E2D55163D511C287 /* Pods_LabCSDLTests.framework */; };
 /* End PBXBuildFile section */
@@ -169,6 +181,18 @@
 		9CC69F63239D97DF006AD530 /* CourseEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseEndpoint.swift; sourceTree = "<group>"; };
 		9CC69F65239DB732006AD530 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		9CC69F67239DC470006AD530 /* CommentEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentEndpoint.swift; sourceTree = "<group>"; };
+		9CF49A60239E308600B5BD02 /* ProfileVCLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCLayout.swift; sourceTree = "<group>"; };
+		9CF49A62239E30AC00B5BD02 /* UserProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVM.swift; sourceTree = "<group>"; };
+		9CF49A65239E30DC00B5BD02 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		9CF49A67239E312500B5BD02 /* CoursesVCLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesVCLayout.swift; sourceTree = "<group>"; };
+		9CF49A69239E314300B5BD02 /* CourseTBCVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTBCVM.swift; sourceTree = "<group>"; };
+		9CF49A6B239E316E00B5BD02 /* CourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
+		9CF49A6D239E31A700B5BD02 /* MyCoursesVCLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoursesVCLayout.swift; sourceTree = "<group>"; };
+		9CF49A71239E31E100B5BD02 /* CourseDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailHeaderView.swift; sourceTree = "<group>"; };
+		9CF49A73239E31F200B5BD02 /* CourseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoView.swift; sourceTree = "<group>"; };
+		9CF49A75239E320B00B5BD02 /* CourseCommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCommentsView.swift; sourceTree = "<group>"; };
+		9CF49A77239E323400B5BD02 /* CourseDetailVCLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailVCLayout.swift; sourceTree = "<group>"; };
+		9CF49A79239E325200B5BD02 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		9E2A08B0E2D55163D511C287 /* Pods_LabCSDLTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LabCSDLTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A393E5528F3044AD3E38ECA3 /* Pods-LabCSDL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LabCSDL.release.xcconfig"; path = "Target Support Files/Pods-LabCSDL/Pods-LabCSDL.release.xcconfig"; sourceTree = "<group>"; };
 		B7142E4C14D9F3C3F995CFBD /* Pods-LabCSDL-LabCSDLUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LabCSDL-LabCSDLUITests.release.xcconfig"; path = "Target Support Files/Pods-LabCSDL-LabCSDLUITests/Pods-LabCSDL-LabCSDLUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -231,7 +255,6 @@
 		9C768887239698E80092DDB9 /* LabCSDL */ = {
 			isa = PBXGroup;
 			children = (
-				9CC69F5A239D6BAE006AD530 /* Models */,
 				9CC69F4E239D6ACE006AD530 /* Services */,
 				9C7688F52396A0E60092DDB9 /* Config */,
 				9C768888239698E80092DDB9 /* AppDelegate.swift */,
@@ -239,7 +262,9 @@
 				9C7688ED23969CF20092DDB9 /* Resources */,
 				9C7688BB23969C910092DDB9 /* IMBFramework */,
 				9CC69F32239CB447006AD530 /* Helpers */,
+				9CC69F5A239D6BAE006AD530 /* Models */,
 				9CC69F39239CB479006AD530 /* Views */,
+				9CF49A5F239E305D00B5BD02 /* VMs */,
 				9C7688F223969E400092DDB9 /* VCs */,
 				9C768896239698E90092DDB9 /* LaunchScreen.storyboard */,
 				9C768899239698E90092DDB9 /* Info.plist */,
@@ -353,10 +378,14 @@
 			children = (
 				9C768902239CB0860092DDB9 /* Starting */,
 				9C7688F323969EF00092DDB9 /* MainVC.swift */,
+				9CF49A60239E308600B5BD02 /* ProfileVCLayout.swift */,
 				9C7688F82396A2770092DDB9 /* ProfileVC.swift */,
 				9CC69F5F239D7A10006AD530 /* UpdateProfileVC.swift */,
+				9CF49A67239E312500B5BD02 /* CoursesVCLayout.swift */,
 				9C7688FC2396A6060092DDB9 /* CoursesVC.swift */,
+				9CF49A6D239E31A700B5BD02 /* MyCoursesVCLayout.swift */,
 				9C7688FE2396A6830092DDB9 /* MyCoursesVC.swift */,
+				9CF49A77239E323400B5BD02 /* CourseDetailVCLayout.swift */,
 				9CC69F4A239CD521006AD530 /* CourseDetailVC.swift */,
 			);
 			path = VCs;
@@ -428,6 +457,8 @@
 		9CC69F39239CB479006AD530 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9CF49A70239E31D200B5BD02 /* CourseDetail */,
+				9CF49A64239E30CC00B5BD02 /* TableView */,
 				9CC69F4C239CDE95006AD530 /* IMBInputMessageBar.swift */,
 				9CC69F3A239CB489006AD530 /* ActivityIndicatorButton.swift */,
 			);
@@ -465,6 +496,35 @@
 				9CC69F65239DB732006AD530 /* Comment.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9CF49A5F239E305D00B5BD02 /* VMs */ = {
+			isa = PBXGroup;
+			children = (
+				9CF49A62239E30AC00B5BD02 /* UserProfileVM.swift */,
+				9CF49A69239E314300B5BD02 /* CourseTBCVM.swift */,
+			);
+			path = VMs;
+			sourceTree = "<group>";
+		};
+		9CF49A64239E30CC00B5BD02 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				9CF49A65239E30DC00B5BD02 /* ProfileTableViewCell.swift */,
+				9CF49A6B239E316E00B5BD02 /* CourseTableViewCell.swift */,
+				9CF49A79239E325200B5BD02 /* CommentTableViewCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		9CF49A70239E31D200B5BD02 /* CourseDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9CF49A71239E31E100B5BD02 /* CourseDetailHeaderView.swift */,
+				9CF49A73239E31F200B5BD02 /* CourseInfoView.swift */,
+				9CF49A75239E320B00B5BD02 /* CourseCommentsView.swift */,
+			);
+			path = CourseDetail;
 			sourceTree = "<group>";
 		};
 		A73C459252759294C2B5734D /* Pods */ = {
@@ -730,9 +790,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF49A68239E312500B5BD02 /* CoursesVCLayout.swift in Sources */,
 				9C7688F92396A2770092DDB9 /* ProfileVC.swift in Sources */,
+				9CF49A78239E323400B5BD02 /* CourseDetailVCLayout.swift in Sources */,
 				9CC69F57239D6AD7006AD530 /* APIRouter.swift in Sources */,
+				9CF49A74239E31F200B5BD02 /* CourseInfoView.swift in Sources */,
 				9C7688E523969C910092DDB9 /* IMBView.swift in Sources */,
+				9CF49A66239E30DC00B5BD02 /* ProfileTableViewCell.swift in Sources */,
 				9C76891F239CB32A0092DDB9 /* LoginVCLayout.swift in Sources */,
 				9C7688E823969C910092DDB9 /* IMBBaseSlideMenuView.swift in Sources */,
 				9CC69F59239D6AD7006AD530 /* UserEndpoint.swift in Sources */,
@@ -753,11 +817,14 @@
 				9C768915239CB3140092DDB9 /* RegisterVC.swift in Sources */,
 				9C7688E423969C910092DDB9 /* ImageCollectionViewCell.swift in Sources */,
 				9C7688DA23969C910092DDB9 /* IMBBasePopUpViewController.swift in Sources */,
+				9CF49A6A239E314300B5BD02 /* CourseTBCVM.swift in Sources */,
 				9C768911239CB2B60092DDB9 /* AppFont.swift in Sources */,
 				9CC69F60239D7A10006AD530 /* UpdateProfileVC.swift in Sources */,
 				9CC69F55239D6AD7006AD530 /* APIConfiguration.swift in Sources */,
 				9C76891B239CB3220092DDB9 /* LaunchVC.swift in Sources */,
 				9C7688F423969EF00092DDB9 /* MainVC.swift in Sources */,
+				9CF49A7A239E325200B5BD02 /* CommentTableViewCell.swift in Sources */,
+				9CF49A61239E308600B5BD02 /* ProfileVCLayout.swift in Sources */,
 				9C7688FF2396A6830092DDB9 /* MyCoursesVC.swift in Sources */,
 				9C7688EB23969C910092DDB9 /* IMBPrettyDateLabel.swift in Sources */,
 				9C768920239CB32A0092DDB9 /* LoginVC.swift in Sources */,
@@ -765,9 +832,11 @@
 				9C768916239CB3140092DDB9 /* RegisterVCLayout.swift in Sources */,
 				9CC69F5C239D6BB8006AD530 /* User.swift in Sources */,
 				9C7688E623969C910092DDB9 /* IMBIndicatorView.swift in Sources */,
+				9CF49A76239E320B00B5BD02 /* CourseCommentsView.swift in Sources */,
 				9C768893239698E80092DDB9 /* LabCSDL.xcdatamodeld in Sources */,
 				9CC69F3B239CB489006AD530 /* ActivityIndicatorButton.swift in Sources */,
 				9C7688D823969C910092DDB9 /* IMBToolbarBasePopUpViewController.swift in Sources */,
+				9CF49A72239E31E100B5BD02 /* CourseDetailHeaderView.swift in Sources */,
 				9C7688DC23969C910092DDB9 /* IMBBaseViewController.swift in Sources */,
 				9C768889239698E80092DDB9 /* AppDelegate.swift in Sources */,
 				9C7688DE23969C910092DDB9 /* IMBBaseSlideMenuScrollViewController.swift in Sources */,
@@ -775,6 +844,7 @@
 				9CC69F64239D97DF006AD530 /* CourseEndpoint.swift in Sources */,
 				9CC69F36239CB447006AD530 /* AppUserDefaults.swift in Sources */,
 				9CC69F5E239D6BEC006AD530 /* Response.swift in Sources */,
+				9CF49A6E239E31A700B5BD02 /* MyCoursesVCLayout.swift in Sources */,
 				9C7689012397AE790092DDB9 /* AppConstant.swift in Sources */,
 				9C76888B239698E80092DDB9 /* SceneDelegate.swift in Sources */,
 				9CC69F58239D6AD7006AD530 /* AuthRouter.swift in Sources */,
@@ -785,9 +855,11 @@
 				9C7688E223969C910092DDB9 /* IMBCoreDataExtension.swift in Sources */,
 				9C7688FB2396A4230092DDB9 /* AppIcon.swift in Sources */,
 				9C76891A239CB3220092DDB9 /* LaunchVCLayout.swift in Sources */,
+				9CF49A63239E30AC00B5BD02 /* UserProfileVM.swift in Sources */,
 				9C76890E239CB27F0092DDB9 /* WelcomeVCLayout.swift in Sources */,
 				9CC69F68239DC470006AD530 /* CommentEndpoint.swift in Sources */,
 				9C7688E123969C910092DDB9 /* IMBBaseSlideMenuCollectionViewController.swift in Sources */,
+				9CF49A6C239E316E00B5BD02 /* CourseTableViewCell.swift in Sources */,
 				9C7688DD23969C910092DDB9 /* IMBViewControllerTemplate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

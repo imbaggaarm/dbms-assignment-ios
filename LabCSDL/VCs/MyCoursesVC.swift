@@ -8,37 +8,9 @@
 
 import UIKit
 
-class MyCoursesVCLayout: BaseViewControllerLayout {
-    
-    lazy var tableView: UITableView = {
-        let temp = UITableView()
-        temp.backgroundColor = AppColor.white
-        temp.register(CourseTableViewCell.self, forCellReuseIdentifier: "CELL_ID")
-        return temp
-    }()
-    
-    override func setUpLayout() {
-        super.setUpLayout()
-        
-        view.addSubview(tableView)
-        tableView.makeFullWithSuperView()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-}
-
 class MyCoursesVC: MyCoursesVCLayout {
     
     var vms = [CourseTBCVM]()
-//        CourseTBCVM(title: "Học lập trình iOS", institutionName: "HCMUT", imgURL: nil),
-//        CourseTBCVM(title: "Kĩ năng chuyên nghiệp cho kĩ sư", institutionName: "HCMUT", imgURL: nil),
-//        CourseTBCVM(title: "Nguyên lý ngôn ngữ lập trình", institutionName: "HCMUT", imgURL: nil),
-//        CourseTBCVM(title: "Nhập môn lập trình", institutionName: "HCMUT", imgURL: nil),
-//        CourseTBCVM(title: "Phân tích và thiết kế hệ thống", institutionName: "HCMUT", imgURL: nil),
-//        CourseTBCVM(title: "Nhập môn kỹ thuật", institutionName: "HCMUT", imgURL: nil),
-//        CourseTBCVM(title: "Quản trị kinh doanh cho kĩ sư", institutionName: "HCMUT", imgURL: nil)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
